@@ -1,0 +1,52 @@
+:root {
+    --header-height: 3rem;
+    /*========== Colors ==========*/
+    --brand-color: #71A9DA;
+    --brand-color-200: #B3CDEB;
+    --brand-color-100: #EBF1F9;
+    --neutral-color: #FCFDFE;
+    --unselected-color: #9EA7B0;
+    --terciary-color: #1B1E20;
+    /*========== Font and typography ==========*/
+    --boddy-font: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: #e7f0f7;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Contenedor central */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+  }
+  
+  /* Secciones */
+  header, main, footer {
+    padding: 2rem 0;
+  }
+  
+  /* Ejemplo de estilo adicional */
+  header {
+    background-color: #005a9c;
+    color: white;
+  }
+  
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }

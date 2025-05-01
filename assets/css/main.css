@@ -3272,6 +3272,11 @@ input, select, textarea {
 			padding-top: 4.25em;
 		}
 
+		#Logo-Nav {
+			height: 140px;
+			width: auto;
+		}
+
 		#nav ul {
 			margin: 0;
 			padding: 0;

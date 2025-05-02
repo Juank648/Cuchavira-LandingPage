@@ -29,6 +29,7 @@
 
 	// Nav.
 		var $nav = $('#nav');
+		var $logoNav = $('#Logo-Nav');
 
 		if ($nav.length > 0) {
 
@@ -38,9 +39,11 @@
 						mode: 'top',
 						enter: function() {
 							$nav.addClass('alt');
+							$logoNav.addClass('alt');
 						},
 						leave: function() {
 							$nav.removeClass('alt');
+							$logoNav.removeClass('alt');
 						},
 					});
 

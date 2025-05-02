@@ -30,6 +30,8 @@
 	// Nav.
 		var $nav = $('#nav');
 		var $logoNav = $('#Logo-Nav');
+		var $navIcon = $('.nav-icon');
+		var $navSeparator = $('#nav-separator');
 
 		if ($nav.length > 0) {
 
@@ -40,10 +42,14 @@
 						enter: function() {
 							$nav.addClass('alt');
 							$logoNav.addClass('alt');
+							$navIcon.addClass('alt');
+							$navSeparator.addClass('alt');
 						},
 						leave: function() {
 							$nav.removeClass('alt');
 							$logoNav.removeClass('alt');
+							$navIcon.removeClass('alt');
+							$navSeparator.removeClass('alt');
 						},
 					});
 

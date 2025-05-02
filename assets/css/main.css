@@ -3225,12 +3225,12 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		-ms-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
-		background-color: #ffffff;
+		/*background-color: #ffffff;*/
 		color: #636363;
 		position: absolute;
 		width: 64em;
 		max-width: calc(100% - 4em);
-		padding: 1em;
+		padding: 1.5em;
 		background-color: var(--neutral-color);
 		border-top-left-radius: 1.5em;
 		border-top-right-radius: 1.5em;
@@ -3241,8 +3241,9 @@ input, select, textarea {
 
 		
 		align-items: center;
-		justify-content: center; 
-		gap: 2em; 
+		justify-content: space-between;
+		/*position: relative;*/
+
 		flex-wrap: wrap; /* por si en móviles se necesita envolver */
 
 		
@@ -3280,11 +3281,22 @@ input, select, textarea {
 		#nav + #main {
 			padding-top: 4.25em;
 		}
-
 		#Logo-Nav {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+
 			height: 120px;
 			width: auto;
 			display: block;
+		}
+		.nav-icon {
+			height: 32px;
+			width: auto;
+		}
+		#nav-separator {
+			height: 74px;
+			width: 17px;
 		}
 
 		#nav ul {
@@ -3293,8 +3305,8 @@ input, select, textarea {
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			gap: 0em;
 
-			
 			flex-direction: row;
 			align-items: center;
 		}
@@ -3335,13 +3347,8 @@ input, select, textarea {
 					gap: 0.5em;
 					padding: 0em;
 				}
-				.nav-sublist {
-					display: flex;
-					align-items: center;
-					gap: 0.5em;
-					padding: 0em;
-
-					gap: 2px;
+				#nav ul li a#explorar-a {
+					padding-right: 0.5em;
 				}
 
 					#nav ul li a:hover {
@@ -3367,6 +3374,14 @@ input, select, textarea {
 			height: 60px;
 			width: auto;
 			display: block;
+		}
+		#nav-separator.alt {
+			height: 56px;
+			width: 17px;
+		}
+		.nav-icon.alt{
+			height: 24px;
+			width: auto;
 		}
 
 			#nav.alt ul li {
@@ -3736,7 +3751,14 @@ input, select, textarea {
 						}
 
 		}
-
+/* Web Sections */
+	#intro {
+		background-color: var(--brand-color-100);
+		color: var(--brand-color);
+	}
+	#intro h2 {
+		color: var(--brand-color);
+	}
 /* Footer */
 
 	#footer {

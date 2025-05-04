@@ -5,9 +5,11 @@
     --header-height: 3rem;
     /*========== Colors ==========*/
     --brand-color: #71A9DA;
+	--brand-color-400: #5683a9;
     --brand-color-200: #B3CDEB;
     --brand-color-100: #EBF1F9;
     --neutral-color: #FCFDFE;
+	--neutral-color-transparency: #fcfdfeba;
     --unselected-color: #9EA7B0;
     --terciary-color: #1B1E20;
 }
@@ -34,10 +36,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-section{
-	border-left: 2px solid var(--brand-color);
-	border-right: 2px solid var(--brand-color);
-}
+
 
 body {
 	line-height: 1;
@@ -169,7 +168,6 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease, border-bottom 0.2s ease;
 		transition: color 0.2s ease, border-bottom 0.2s ease;
 		text-decoration: none;
-		border-bottom: dotted 1px;
 		color: inherit;
 	}
 
@@ -186,19 +184,14 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0.2em 0;
 	}
 
 		p.content {
-			-moz-columns: 20em 2;
-			-webkit-columns: 20em 2;
-			-ms-columns: 20em 2;
-			columns: 20em 2;
-			-moz-column-gap: 2em;
-			-webkit-column-gap: 2em;
-			-ms-column-gap: 2em;
-			column-gap: 2em;
-			text-align: justify;
+			text-align: left;
+			font-size: 1.5em;
+			font-weight: 500;
+			line-height: normal;
 		}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -315,7 +308,7 @@ input, select, textarea {
 	}
 
 	a:hover {
-		color: #ffffff;
+		color: var(--brand-color-400);
 	}
 
 	strong, b {
@@ -2264,11 +2257,11 @@ input, select, textarea {
 		}
 
 		.icon.major {
-			border: solid 1px;
+			border: solid 2px;
 			display: inline-block;
-			border-radius: 100%;
-			padding: 0.65em;
-			margin: 0 0 2em 0;
+			border-radius: 28px;
+			padding: 3em 4em;
+			margin: 0 0 0.5em 0;
 			cursor: default;
 		}
 
@@ -2435,14 +2428,20 @@ input, select, textarea {
 		}
 
 	ul {
-		list-style: disc;
-		margin: 0 0 2em 0;
+		list-style: none;
+		margin: 0;
 		padding-left: 1em;
 	}
 
 		ul li {
 			padding-left: 0.5em;
+			padding-right: 0.5em;
 		}
+			ul li.light:hover {
+				background-color: var(--neutral-color-transparency);
+				border-radius: 24px;
+				color: var(--brand-color-400);
+			}
 
 		ul.alt {
 			list-style: none;
@@ -2651,7 +2650,7 @@ input, select, textarea {
 		header.major h2 {
 			font-size: 2em;
 		}
-
+			/*
 			header.major h2:after {
 				display: block;
 				content: '';
@@ -2659,7 +2658,7 @@ input, select, textarea {
 				height: 2px;
 				margin: 0.7em 0 1em 0;
 				border-radius: 2px;
-			}
+			}*/
 
 				section.special header.major h2:after, article.special header.major h2:after {
 					margin-left: auto;
@@ -2682,6 +2681,13 @@ input, select, textarea {
 
 	footer.major {
 		margin-top: 3em;
+	}
+	header.minor-header{
+		text-align: left;
+	}
+	header.minor-header-secondary {
+		text-align: left;
+		padding-top: 2em;
 	}
 
 	@media screen and (max-width: 736px) {
@@ -2708,10 +2714,10 @@ input, select, textarea {
 		}
 
 	}
-
+	/*
 	header.major h2:after {
 		background-color: rgba(255, 255, 255, 0.35);
-	}
+	}*/
 
 /* Table */
 
@@ -2814,19 +2820,27 @@ input, select, textarea {
 		-moz-justify-content: center;
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
-		justify-content: center;
+		justify-content: left;
 		width: calc(100% + 2em);
-		margin: 0 0 3em -2em;
+		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
 		.features li {
-			width: calc(33.33333% - 2em);
+			/*width: calc(33.33333% - 2em);*/
 			margin-left: 2em;
 			margin-top: 3em;
-			padding: 0;
+			width: 14em;
+			padding: 0.5em 0em;
 		}
+		.features li.features-li-title{
+			text-align: left;
+			width: 12em;
+			padding: 0em;
+			margin: 0;
+		}
+		
 
 			.features li:nth-child(1), .features li:nth-child(2), .features li:nth-child(3) {
 				margin-top: 0;
@@ -2987,7 +3001,7 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		margin: 0 0 2em 0;
+		/*margin: 0 0 2em 0;*/
 	}
 
 		.spotlight .content {
@@ -2995,6 +3009,8 @@ input, select, textarea {
 			-webkit-flex: 1;
 			-ms-flex: 1;
 			flex: 1;
+			margin-top: 1em;
+			margin-bottom: 1em;
 		}
 
 			.spotlight .content > :last-child {
@@ -3009,14 +3025,12 @@ input, select, textarea {
 			display: inline-block;
 			margin-left: 4em;
 			padding: 0.65em;
-			border-radius: 100%;
-			border: solid 1px;
 		}
 
 			.spotlight .image img {
 				display: block;
-				border-radius: 100%;
-				width: 16em;
+				border-radius: 32px;
+				width: 25em;
 			}
 
 		@media screen and (max-width: 980px) {
@@ -3312,9 +3326,11 @@ input, select, textarea {
 		}
 		#left-ul {
 			color: var(--brand-color);
+			font-weight: 600;
 		}
 		#Right-ul {
-			color: var(--unselected-color)
+			color: var(--unselected-color);
+			font-weight: 500;
 		}
 
 			#nav ul li {
@@ -3407,21 +3423,25 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #ffffff;
-		color: #636363;
-		border-radius: 0.25em;
+		background-color: var(--brand-color-100);
+		color: var(--brand-color);
+		border-radius: 1.5em;
+		border: 2px solid var(--brand-color);
+		border-top: none;
+		margin-bottom: 8em;
 	}
 
 		#main input, #main select, #main textarea {
 			color: #636363;
 		}
 
-		#main a:hover {
-			color: #636363;
+		#main a.light:hover {
+			color: var(--brand-color-400);
 		}
 
 		#main strong, #main b {
-			color: #636363;
+			color: var(--brand-color);
+			font-weight: 600;
 		}
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
@@ -3589,11 +3609,11 @@ input, select, textarea {
 		}
 
 		#main .icon.major {
-			border-color: #dddddd;
+			border-color: var(--neutral-color);
 		}
 
 			#main .icon.major:before {
-				border-color: #dddddd;
+				border-color: var(--neutral-color);
 			}
 
 		#main .icon.alt {
@@ -3616,14 +3636,14 @@ input, select, textarea {
 		#main dl dt {
 			color: #636363;
 		}
-
+		/*
 		#main header.major h2:after {
 			background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-		}
+		}*/
 
 		#main table tbody tr {
 			border-color: #dddddd;
@@ -3653,8 +3673,12 @@ input, select, textarea {
 			border-color: #dddddd;
 		}
 
+		#main > .main-intro {
+			padding: 5em 2em 2em 3em ;
+			border-top: solid 1px #dddddd;
+		}
 		#main > .main {
-			padding: 5em 5em 3em 5em ;
+			padding: 2em 3.1em 2em 3.1em ;
 			border-top: solid 1px #dddddd;
 		}
 
@@ -3758,7 +3782,97 @@ input, select, textarea {
 	}
 	#intro h2 {
 		color: var(--brand-color);
+		font-size: 85px;
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0;
 	}
+	#intro p {
+		font-size: 18px;
+		font-weight: 500;
+		color: var(--brand-color);
+	}
+	#intro strong {
+		color: var(--brand-color);
+		font-weight: 600;
+	}
+
+	#first {
+		background-image: url(../img/topography.svg);
+		border-radius: 32px;
+		color: var(--neutral-color);
+		padding: 2.5em;
+	}
+	#first h2 {
+		color: var(--neutral-color);
+		font-size: 0.8em;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
+	#first h3 {
+		color: var(--neutral-color);
+		font-weight: 800;
+		font-size: 1.7em;
+	}
+	#first h4 {
+		color: var(--neutral-color);
+		font-weight: 600;
+		margin-bottom: 0.1em;
+	}
+		/*#first a:hover{
+			color: var(--brand-color);
+		}*/
+	#first p {
+		font-weight: 400;
+		line-height: normal;
+		margin: 0;
+	}
+	#first ul li.features-li-element * {
+		color: var(--neutral-color);
+	}
+		#first ul li.features-li-element:hover {
+			background-color: var(--neutral-color-transparency);
+			border-radius: 32px;
+		}
+		#first ul li.features-li-element:hover * {
+			color: var(--brand-color-400);
+			border-color: var(--brand-color-400);
+		}
+	
+	#second {
+		background-color: var(--brand-color-100);
+		color: var(--brand-color);
+	}
+	#second h2 {
+		color: var(--brand-color);
+		font-size: 0.8em;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
+	#third {
+		background-image: url(../img/topography.svg);
+		background-position: bottom;
+		border-radius: 32px;
+		color: var(--neutral-color);
+		padding: 2.5em;
+	}
+	#third h2 {
+		color: var(--neutral-color);
+		font-size: 0.8em;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
+	#third .image img{
+		display: block;
+		border-radius: 32px;
+		width: 25em;
+	}
+	#third ul {
+		text-align: left;
+		font-size: 1.3em;
+    	font-weight: 500;
+	}
+		
 /* Footer */
 
 	#footer {
@@ -3772,7 +3886,7 @@ input, select, textarea {
 		flex-wrap: wrap;
 		padding: 5em 5em 3em 5em ;
 		width: calc(100% + 2em);
-		margin: 0 0 3em -2em;
+		margin: 0;
 	}
 
 		#footer > * {
@@ -3846,6 +3960,9 @@ input, select, textarea {
 		width: 64em;
 		max-width: calc(100% - 4em);
 		margin: 0 auto;
+	}
+	.section-wrapper {
+		background-color: var(--brand-color-100);
 	}
 
 		@media screen and (max-width: 480px) {

@@ -2437,7 +2437,7 @@ input, select, textarea {
 			padding-left: 0.5em;
 			padding-right: 0.5em;
 		}
-			ul li.light:hover {
+			ul li.dark:hover {
 				background-color: var(--neutral-color-transparency);
 				border-radius: 24px;
 				color: var(--brand-color-400);
@@ -2501,10 +2501,6 @@ input, select, textarea {
 /* Actions */
 
 	ul.actions {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
 		cursor: default;
 		list-style: none;
 		margin-left: -1em;
@@ -3435,8 +3431,11 @@ input, select, textarea {
 			color: #636363;
 		}
 
-		#main a.light:hover {
+		#main a.dark:hover {
 			color: var(--brand-color-400);
+		}
+		#main a.light:hover {
+			text-decoration: underline;
 		}
 
 		#main strong, #main b {
@@ -3445,7 +3444,8 @@ input, select, textarea {
 		}
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
-			color: #636363;
+			color: var(--brand-color);
+			font-weight: 500;
 		}
 
 		#main blockquote {
@@ -3777,7 +3777,6 @@ input, select, textarea {
 		}
 /* Web Sections */
 	#intro {
-		background-color: var(--brand-color-100);
 		color: var(--brand-color);
 	}
 	#intro h2 {
@@ -3840,7 +3839,6 @@ input, select, textarea {
 		}
 	
 	#second {
-		background-color: var(--brand-color-100);
 		color: var(--brand-color);
 	}
 	#second h2 {
@@ -3884,21 +3882,29 @@ input, select, textarea {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		padding: 5em 5em 3em 5em ;
-		width: calc(100% + 2em);
+		align-items: flex-start;
+		justify-content: center;
+		padding: 5em 2em 2em 2em;
+		width: calc(100%);
 		margin: 0;
+	}
+	#footer-logo {
+		height: 170px;
+		width: auto;
+		margin-left: auto;
 	}
 
 		#footer > * {
-			width: calc(50% - 2em);
 			margin-left: 2em;
 		}
 
 		#footer .copyright {
 			width: 100%;
-			margin: 2.5em 0 2em 0;
+			margin: 5em 0 0 0;
 			font-size: 0.8em;
 			text-align: center;
+			border-top: solid 1px;
+			padding-top: 2em;
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3961,22 +3967,3 @@ input, select, textarea {
 		max-width: calc(100% - 4em);
 		margin: 0 auto;
 	}
-	.section-wrapper {
-		background-color: var(--brand-color-100);
-	}
-
-		@media screen and (max-width: 480px) {
-
-			#wrapper {
-				max-width: calc(100% - 2em);
-			}
-
-		}
-
-		@media screen and (max-width: 360px) {
-
-			#wrapper {
-				max-width: 100%;
-			}
-
-		}

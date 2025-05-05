@@ -2407,7 +2407,7 @@ input, select, textarea {
 
 		.image.main {
 			display: block;
-			margin: 0 0 3em 0;
+			margin: 2em 0 2em 0;
 			width: 100%;
 		}
 
@@ -2637,6 +2637,9 @@ input, select, textarea {
 
 	section.special, article.special {
 		text-align: center;
+	}
+	section#content {
+		color: var(--brand-color-400);
 	}
 
 	header.major {
@@ -3289,7 +3292,7 @@ input, select, textarea {
 		}
 
 		#nav + #main {
-			padding-top: 4.25em;
+			padding-top: 7.25em;
 		}
 		#Logo-Nav {
 			position: absolute;
@@ -3425,6 +3428,9 @@ input, select, textarea {
 		border: 2px solid var(--brand-color);
 		border-top: none;
 		margin-bottom: 8em;
+	}
+	#main.neutral-bkg {
+		background-color: var(--neutral-color);
 	}
 
 		#main input, #main select, #main textarea {
@@ -3674,12 +3680,10 @@ input, select, textarea {
 		}
 
 		#main > .main-intro {
-			padding: 5em 2em 2em 3em ;
-			border-top: solid 1px #dddddd;
+			padding: 2em 3em 2em 3em;
 		}
 		#main > .main {
 			padding: 2em 3.1em 2em 3.1em ;
-			border-top: solid 1px #dddddd;
 		}
 
 			#main > .main:first-child {

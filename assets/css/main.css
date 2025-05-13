@@ -112,8 +112,8 @@ input, select, textarea {
 
 	body {
 		
-		/*background-image: url("images/bkgdPattern.png");*/
-		background-color: var(--brand-color);
+		background-image: url("images/bkgdPattern.png");
+		/*background-color: var(--brand-color);*/
 		background-size: auto;
 		background-position: top left;
 		background-repeat: repeat;
@@ -1998,6 +1998,9 @@ input, select, textarea {
 			.button.primary.icon:before {
 				color: #ffffff !important;
 			}
+	a.button.fit {
+		margin-top: 1em;
+	}
 
 /* Form */
 
@@ -3997,3 +4000,18 @@ input, select, textarea {
 		max-width: calc(100% - 4em);
 		margin: 0 auto;
 	}
+/* Gallery */
+
+.mySwiper {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 2em auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}

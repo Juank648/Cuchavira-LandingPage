@@ -3488,11 +3488,15 @@ input, select, textarea {
 
 		}
 		@media screen and (max-width: 540px) {
+		
 			#nav {
-				padding: 1.5em 0.5em;
+				padding: 1.5em 0.8em;
 			}
 			#nav ul li a{
-				padding: 0 0.2em;
+				padding: 0 0.4em;
+			}
+			#nav ul li a#intro-nav{
+				display: none;
 			}
 
 		}

@@ -2426,6 +2426,24 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
+		.image.content {
+			display: block;
+			margin: 2em auto;
+			width: 40%;
+		}
+
+			.image.content img {
+				width: 100%;
+			}
+		.image.bigcontent {
+			display: block;
+			margin: 2em auto;
+			width: 60%;
+		}
+
+			.image.bigcontent img {
+				width: 100%;
+			}
 
 /* List */
 

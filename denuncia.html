@@ -82,13 +82,16 @@
 							<p style="padding-bottom: 2em;">
 								Denuncia o reporta actividades que impacten negativamente la calidad del aire
 							</p>
-							<form method="post" action="#">
+							<form method="post" action="php/send_form.php" enctype="multipart/form-data">
 								<div class="row gtr-uniform">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+									<div class="col-12">
+										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nombre (opcional)" />
 									</div>
 									<div class="col-6 col-12-xsmall">
-										<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+										<input type="text" name="demo-locality" id="demo-locality" value="" placeholder="Localidad" required />
+									</div>
+									<div class="col-6 col-12-xsmall">
+										<input type="text" name="demo-address" id="demo-address" value="" placeholder="Dirección" required />
 									</div>
 									<div class="col-12">
 										<select name="demo-category" id="demo-category">
@@ -100,16 +103,16 @@
 										</select>
 									</div>
 									<div class="col-12">
-										<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+										<textarea name="demo-message" id="demo-message" placeholder="Cuentanos tu denuncia" rows="6" required></textarea>
 									</div>
-									<div class="col-6 col-12-small">
-										<input type="checkbox" id="demo-copy" name="demo-copy">
-										<label for="demo-copy">Envíame una copia a mi email</label>
+									<div class="col-12">
+										<label for="demo-image">Adjunta Pruebas Visuales</label>
+										<input type="file" name="demo-images[]" id="demo-images" accept="image/*" multiple>
 									</div>
 									<div class="col-12">
 										<ul class="actions special">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
+											<li><input type="submit" value="Enviar Mensaje" class="primary" /></li>
+											<li><input type="reset" value="Borrar" /></li>
 										</ul>
 									</div>
 								</div>

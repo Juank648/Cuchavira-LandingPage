@@ -1,56 +1,58 @@
 <?php
-$to = "tucorreo@dominio.com";
-$subject = "Nueva denuncia desde el formulario web";
+// send_form.php
 
-$nombre = $_POST['demo-name'];
-$localidad = $_POST['demo-locality'];
-$direccion = $_POST['demo-address'];
-$categoria = $_POST['demo-category'];
-$mensaje = $_POST['demo-message'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-$body = "Nombre: $nombre\n";
-$body .= "Localidad: $localidad\n";
-$body .= "Dirección: $direccion\n";
-$body .= "Categoría: $categoria\n\n";
-$body .= "Mensaje:\n$mensaje\n";
+require __DIR__ . '/../vendor/autoload.php';
 
-// Manejo del archivo adjunto (imagen)
-if (isset($_FILES['demo-images'])) {
-    $total = count($_FILES['demo-images']['name']);
-    
-    for ($i = 0; $i < $total; $i++) {
-        if ($_FILES['demo-images']['error'][$i] === UPLOAD_ERR_OK) {
-            $file_tmp = $_FILES['demo-images']['tmp_name'][$i];
-            $file_name = $_FILES['demo-images']['name'][$i];
-            $file_type = $_FILES['demo-images']['type'][$i];
-            $file_content = chunk_split(base64_encode(file_get_contents($file_tmp)));
+// Configuración de PHPMailer
+$mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';           // Servidor SMTP
+    $mail->SMTPAuth   = true;                       // Habilitar autenticación SMTP
+    $mail->Username   = 'portalcuchavira@gmail.com';       // Tu correo SMTP
+    $mail->Password   = '';          // Tu clave de aplicación
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
-            $boundary = md5(time());
-            
-            $headers = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
-            $headers .= "From: formulario@tusitio.com\r\n";
+    // Remitente y destinatario
+    $mail->setFrom('portalcuchavira@gmail.com', 'Formulario Web');
+    $mail->addAddress('jkam86425@gmail.com', 'Destinatario');
 
-            $mensaje_email = "--$boundary\r\n";
-            $mensaje_email .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
-            $mensaje_email .= $body . "\r\n";
+    // Contenido del correo
+    $mail->isHTML(false);
+    $mail->Subject = 'Nueva denuncia desde el formulario web';
 
-            // Agregar cada imagen como archivo adjunto
-            $mensaje_email .= "--$boundary\r\n";
-            $mensaje_email .= "Content-Type: $file_type; name=\"$file_name\"\r\n";
-            $mensaje_email .= "Content-Disposition: attachment; filename=\"$file_name\"\r\n";
-            $mensaje_email .= "Content-Transfer-Encoding: base64\r\n\r\n";
-            $mensaje_email .= $file_content . "\r\n";
+    // Construir cuerpo
+    $nombre    = !empty($_POST['demo-name']) ? $_POST['demo-name'] : 'No proporcionado';
+    $localidad = $_POST['demo-locality'] ?? 'No proporcionado';
+    $direccion = $_POST['demo-address'] ?? 'No proporcionado';
+    $categoria = $_POST['demo-category'] ?? 'No seleccionada';
+    $mensaje   = $_POST['demo-message'] ?? '';
+
+    $body  = "Nombre: {$nombre}\n";
+    $body .= "Localidad: {$localidad}\n";
+    $body .= "Dirección: {$direccion}\n";
+    $body .= "Categoría: {$categoria}\n\n";
+    $body .= "Mensaje:\n{$mensaje}\n";
+
+    $mail->Body = $body;
+
+    // Adjuntar imágenes si existen
+    if (isset($_FILES['demo-images']) && is_array($_FILES['demo-images']['tmp_name'])) {
+        foreach ($_FILES['demo-images']['tmp_name'] as $index => $tmpName) {
+            if (is_uploaded_file($tmpName) && $_FILES['demo-images']['error'][$index] === UPLOAD_ERR_OK) {
+                $originalName = $_FILES['demo-images']['name'][$index];
+                $mail->addAttachment($tmpName, $originalName);
+            }
         }
     }
 
-    $mensaje_email .= "--$boundary--";
-    mail($to, $subject, $mensaje_email, $headers);
-} else {
-    // Email sin imagen
-    $headers = "From: formulario@tusitio.com\r\n";
-    mail($to, $subject, $body, $headers);
+    // Enviar
+    $mail->send();
+    echo 'Mensaje enviado correctamente.';
+} catch (Exception $e) {
+    echo "No se pudo enviar el correo. Error: {$mail->ErrorInfo}";
 }
-
-echo "Mensaje enviado correctamente.";
-?>

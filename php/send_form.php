@@ -58,11 +58,11 @@ try {
     // Enviar
     $mail->send();
     $mensaje = urlencode("Mensaje enviado correctamente.");
-    header("Location: ../public/respuesta.html?tipo=exito&mensaje={$mensaje}");
+    header("Location: /public/respuesta.html?tipo=exito&mensaje={$mensaje}");
     exit;
 } catch (Exception $e) {
     $error = urlencode("No se pudo enviar el correo. Error: " . $mail->ErrorInfo);
-    header("Location: ../public/respuesta.html?tipo=error&mensaje={$error}");
+    header("Location: /public/respuesta.html?tipo=error&mensaje={$error}");
     exit;
     
 }

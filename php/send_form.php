@@ -57,7 +57,12 @@ try {
 
     // Enviar
     $mail->send();
-    echo 'Mensaje enviado correctamente.';
+    $mensaje = urlencode("Mensaje enviado correctamente.");
+    header("Location: ../public/respuesta.html?tipo=exito&mensaje={$mensaje}");
+    exit;
 } catch (Exception $e) {
-    echo "No se pudo enviar el correo. Error: {$mail->ErrorInfo}";
+    $error = urlencode("No se pudo enviar el correo. Error: " . $mail->ErrorInfo);
+    header("Location: ../public/respuesta.html?tipo=error&mensaje={$error}");
+    exit;
+    
 }
